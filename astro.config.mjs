@@ -13,6 +13,18 @@ export default defineConfig({
     starlight({
       title: 'R3F Learning Docs',
       customCss: ['./src/styles/global.css'],
+      disable404Route: true,
+      editLink: {
+        baseUrl: 'https://github.com/JMixson/r3f-learning-docs/edit/main/src/content/docs/',
+      },
+      lastUpdated: true,
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/JMixson/r3f-learning-docs',
+        },
+      ],
       sidebar: [
         {
           label: 'Start Here',
