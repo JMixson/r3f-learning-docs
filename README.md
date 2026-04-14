@@ -1,19 +1,35 @@
 # R3F Learning Docs
 
-R3F Learning Docs is a custom Astro + Starlight site for learning React Three Fiber by comparing familiar Three.js patterns with equivalent R3F code.
+R3F Learning Docs is an Astro + Starlight site for learning React Three Fiber by comparing familiar Three.js patterns with their React equivalents.
 
-The docs are organized around a simple teaching loop:
+Each lesson follows a simple loop:
 
-1. Read the original Three.js approach.
-2. Compare it to the React Three Fiber version.
-3. Focus on what stays the same and what becomes declarative.
+1. Read the Three.js version.
+2. Switch to the React Three Fiber version.
+3. Run the R3F example inline with the Sandpack preview embedded in the page.
 
-## What This Project Covers
+## What The Site Covers
 
-- `start-here/`: foundational mental models for reading and learning R3F
+- `start-here/`: core mental models for reading and learning R3F
 - `conversions/`: side-by-side translations from common Three.js setups to R3F
+- `guides/`: broader walkthroughs and supporting explanations
 - `patterns/`: practical guidance on refs, state, imperative updates, and helper libraries
 - `reference/`: quick lookup material for JSX primitives, prop mappings, and common gotchas
+
+The documentation homepage lives at `src/content/docs/index.mdx`.
+
+## How Examples Work
+
+The docs use a shared example registry plus inline Sandpack previews for the comparison pages.
+
+- Source examples live in `examples/<slug>/`
+- Each example includes:
+  - `three/main.js` for the vanilla Three.js version
+  - `r3f/App.jsx` for the React Three Fiber version
+  - `meta.json` for the title, summary, sandbox links, and pinned dependency versions
+- `src/data/examples.ts` imports those files and exposes them to the docs components
+- `src/components/docs/CodeCompare.astro` renders the tabbed code comparison and mounts the live R3F preview
+- `src/components/docs/SandpackDemo.tsx` and `src/components/docs/SandpackDemoClient.tsx` boot the inline Sandpack runtime
 
 ## Tech Stack
 
@@ -22,26 +38,32 @@ The docs are organized around a simple teaching loop:
 - [React](https://react.dev/)
 - [React Three Fiber](https://r3f.docs.pmnd.rs/)
 - [Three.js](https://threejs.org/)
+- [Sandpack](https://sandpack.codesandbox.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Project Structure
 
 ```text
 .
+|-- examples/
 |-- public/
 |-- src/
+|   |-- components/
+|   |   `-- docs/
 |   |-- content/
 |   |   `-- docs/
 |   |       |-- conversions/
+|   |       |-- guides/
 |   |       |-- patterns/
 |   |       |-- reference/
 |   |       `-- start-here/
+|   |-- data/
+|   |-- pages/
 |   `-- styles/
 |-- astro.config.mjs
 |-- package.json
 `-- README.md
 ```
-
-The documentation homepage lives at `src/content/docs/index.mdx`.
 
 ## Commands
 
@@ -59,7 +81,9 @@ Run these from the project root:
 
 - Docs content is written in `.md` and `.mdx` files under `src/content/docs/`.
 - Static assets belong in `public/`.
-- Styling is primarily handled through the Starlight setup and the files in `src/styles/`.
+- Shared styling lives in `src/styles/`.
+- Example updates usually touch both the lesson content and the matching files in `examples/`.
+- The inline preview only runs the R3F example; the Three.js version is shown as a comparison reference.
 
 ## License
 
