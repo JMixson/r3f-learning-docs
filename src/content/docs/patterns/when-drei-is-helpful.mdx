@@ -1,0 +1,33 @@
+---
+title: When Drei Is Helpful
+description: Use helper abstractions intentionally, after you understand the underlying Three.js and R3F concepts.
+sidebar:
+  order: 3
+---
+
+`@react-three/drei` is excellent, but it is easiest to learn after the basic R3F mappings feel familiar.
+
+## Good First Uses
+
+- `<OrbitControls />` when you need camera orbit controls.
+- `<Environment />` when you want better lighting quickly.
+- `useGLTF()` when you are loading model assets repeatedly.
+- `<Text />` when you need text without building the setup from scratch.
+
+## When To Pause Before Using It
+
+- When you do not yet understand the equivalent raw Three.js concept.
+- When a helper hides the exact translation you are trying to learn.
+- When a docs page is supposed to teach fundamentals, not speed.
+
+## Recommendation For This Site
+
+Learn the lowercase primitives and the scene graph first. Introduce Drei when it shortens setup without hiding the mental model you are trying to build.
+
+## External Resources
+
+- [Drei docs](https://drei.docs.pmnd.rs/getting-started/introduction)
+- [Drei controls overview](https://drei.docs.pmnd.rs/controls/introduction)
+- [Drei `Environment`](https://drei.docs.pmnd.rs/staging/environment)
+- [Drei `useGLTF`](https://drei.docs.pmnd.rs/loaders/gltf-use-gltf)
+- [React Three Fiber docs](https://r3f.docs.pmnd.rs/)

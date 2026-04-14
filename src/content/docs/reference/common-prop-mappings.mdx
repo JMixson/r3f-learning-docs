@@ -1,0 +1,30 @@
+---
+title: Common Prop Mappings
+description: The props and patterns you will translate most often when moving from Three.js to R3F.
+sidebar:
+  order: 2
+---
+
+| Three.js pattern | R3F pattern |
+| --- | --- |
+| `object.position.set(x, y, z)` | `position={[x, y, z]}` |
+| `object.rotation.set(x, y, z)` | `rotation={[x, y, z]}` |
+| `object.scale.setScalar(1.4)` | `scale={1.4}` |
+| `new SomeClass(a, b, c)` | `<someClass args={[a, b, c]} />` |
+| `material.color.set('#f97316')` | `<meshStandardMaterial color="#f97316" />` |
+| `scene.add(child)` | nest the child inside the parent |
+| `renderer.setPixelRatio(...)` | `dpr={[1, 2]}` on `<Canvas />` |
+| `requestAnimationFrame(...)` | `useFrame(...)` |
+| `new TextureLoader().load(url)` | `useLoader(TextureLoader, url)` |
+| `raycaster.intersectObjects(...)` for basic mesh clicks | `onClick`, `onPointerOver`, `onPointerOut` |
+
+## One Special Case
+
+`attach` is the prop to remember when a child should be assigned to a named property instead of simply added as a normal child. The classic example is scene background color.
+
+## External Resources
+
+- [React Three Fiber objects and props docs](https://r3f.docs.pmnd.rs/api/objects)
+- [Three.js `Object3D` docs](https://threejs.org/docs/#api/en/core/Object3D)
+- [Three.js `Color` docs](https://threejs.org/docs/#api/en/math/Color)
+- [React Three Fiber `Canvas` API](https://r3f.docs.pmnd.rs/api/canvas)

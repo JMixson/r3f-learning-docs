@@ -1,0 +1,45 @@
+---
+title: Refs vs State
+description: Decide when scene data should stay mutable and when it belongs in React state.
+sidebar:
+  order: 1
+---
+
+Use `useRef` when you need to mutate a Three.js object directly. Use React state when a value should cause a meaningful declarative scene change or UI change.
+
+## Reach For Refs When
+
+- You are changing transforms every frame.
+- You are reading or mutating cameras, materials, or meshes imperatively.
+- You do not want every tick to trigger a React render.
+
+```jsx
+const meshRef = useRef(null);
+
+useFrame(() => {
+  meshRef.current.rotation.y += 0.01;
+});
+```
+
+## Reach For State When
+
+- A click toggles something on or off.
+- A control panel changes color, visibility, or scene composition.
+- The value is part of app logic, not just a transient render-loop mutation.
+
+```jsx
+const [active, setActive] = useState(false);
+
+<mesh scale={active ? 1.3 : 1} onClick={() => setActive((value) => !value)} />
+```
+
+## Rule Of Thumb
+
+If the change is continuous and frame-driven, prefer refs. If the change is discrete and declarative, prefer state.
+
+## External Resources
+
+- [React Three Fiber hooks docs](https://r3f.docs.pmnd.rs/api/hooks)
+- [React `useRef` docs](https://react.dev/reference/react/useRef)
+- [React `useState` docs](https://react.dev/reference/react/useState)
+- [SBCODE: `useRef` tutorial](https://sbcode.net/react-three-fiber/use-ref/)

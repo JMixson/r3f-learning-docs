@@ -1,0 +1,29 @@
+---
+title: JSX to Three.js Cheatsheet
+description: Quick lookups for the most common direct mappings from R3F JSX to Three.js objects.
+sidebar:
+  order: 1
+---
+
+| R3F JSX | Rough Three.js equivalent |
+| --- | --- |
+| `<mesh />` | `new THREE.Mesh()` |
+| `<group />` | `new THREE.Group()` |
+| `<perspectiveCamera />` | `new THREE.PerspectiveCamera()` |
+| `<ambientLight />` | `new THREE.AmbientLight()` |
+| `<directionalLight />` | `new THREE.DirectionalLight()` |
+| `<boxGeometry args={[1, 1, 1]} />` | `new THREE.BoxGeometry(1, 1, 1)` |
+| `<sphereGeometry args={[1, 32, 16]} />` | `new THREE.SphereGeometry(1, 32, 16)` |
+| `<meshStandardMaterial color="orange" />` | `new THREE.MeshStandardMaterial({ color: 'orange' })` |
+| `<color attach="background" args={['#111']} />` | `scene.background = new THREE.Color('#111')` |
+| JSX nesting | `parent.add(child)` |
+
+## Reading Tip
+
+When you see a lowercase tag in R3F, ask: "Which Three.js class would this create?" That question will usually point you in the right direction immediately.
+
+## External Resources
+
+- [React Three Fiber objects and props docs](https://r3f.docs.pmnd.rs/api/objects)
+- [Three.js docs index](https://threejs.org/docs/)
+- [Three.js `Object3D` docs](https://threejs.org/docs/#api/en/core/Object3D)

@@ -1,0 +1,44 @@
+---
+title: Animation Loop to useFrame
+description: Move requestAnimationFrame work into R3F's frame hook without re-rendering React state every tick.
+sidebar:
+  order: 4
+---
+
+import CodeCompare from '../../../components/docs/CodeCompare.astro';
+import MappingNotes from '../../../components/docs/MappingNotes.astro';
+import VersionBadge from '../../../components/docs/VersionBadge.astro';
+import { getExample } from '../../../data/examples';
+
+export const example = getExample('animation-loop-to-useframe');
+
+{example.meta.summary}
+
+<VersionBadge versions={example.meta.versions} />
+
+<CodeCompare
+  title="Exact Conversion"
+  slug={example.meta.slug}
+  threeCode={example.threeCode}
+  r3fCode={example.r3fCode}
+/>
+
+<MappingNotes>
+
+- `requestAnimationFrame(animate)` becomes `useFrame(...)`.
+- The mutable object reference moves into `useRef`.
+- Rotation updates still mutate the underlying Three.js object directly.
+- React state is not the right tool for per-frame transforms like this.
+
+</MappingNotes>
+
+## Why The Ref Matters
+
+In Three.js, you already mutate the mesh each frame. In R3F, that pattern still exists. The React part is how you declare the scene, not a requirement to drive every animation through component state.
+
+## External Resources
+
+- [React Three Fiber hooks docs](https://r3f.docs.pmnd.rs/api/hooks)
+- [Three.js `Clock` docs](https://threejs.org/docs/#api/en/core/Clock)
+- [Three.js manual: Creating a scene](https://threejs.org/manual/en/creating-a-scene.html)
+- [SBCODE: `useFrame` tutorial](https://sbcode.net/react-three-fiber/use-frame/)

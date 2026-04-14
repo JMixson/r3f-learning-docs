@@ -1,0 +1,44 @@
+---
+title: Events
+description: Replace manual pointer bookkeeping and raycasting with built-in R3F pointer events for common interactions.
+sidebar:
+  order: 5
+---
+
+import CodeCompare from '../../../components/docs/CodeCompare.astro';
+import MappingNotes from '../../../components/docs/MappingNotes.astro';
+import VersionBadge from '../../../components/docs/VersionBadge.astro';
+import { getExample } from '../../../data/examples';
+
+export const example = getExample('events');
+
+{example.meta.summary}
+
+<VersionBadge versions={example.meta.versions} />
+
+<CodeCompare
+  title="Exact Conversion"
+  slug={example.meta.slug}
+  threeCode={example.threeCode}
+  r3fCode={example.r3fCode}
+/>
+
+<MappingNotes>
+
+- In raw Three.js, you often manage a `Raycaster`, normalized pointer coordinates, and manual intersections yourself.
+- In R3F, a mesh can often handle `onClick`, `onPointerOver`, and related events directly.
+- The clicked object is still the same underlying Three.js mesh.
+- React state is fine here because the interaction is discrete, not per-frame.
+
+</MappingNotes>
+
+## When To Drop Back Down
+
+Built-in R3F events cover a lot of interaction work. If you need fully custom hit testing or more complex control over intersections, you can still use the raw Three.js tools underneath.
+
+## External Resources
+
+- [React Three Fiber events docs](https://r3f.docs.pmnd.rs/api/events)
+- [Three.js `Raycaster` docs](https://threejs.org/docs/#api/en/core/Raycaster)
+- [Three.js manual: Picking](https://threejs.org/manual/en/picking.html)
+- [SBCODE: R3F events tutorial](https://sbcode.net/react-three-fiber/events/)

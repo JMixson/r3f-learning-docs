@@ -1,0 +1,57 @@
+---
+title: How to Read R3F Like Three.js
+description: A practical mental model for converting JSX back into the underlying Three.js scene graph.
+sidebar:
+  order: 2
+---
+
+When you read R3F, imagine each JSX tag as a Three.js object being created and attached somewhere in the scene.
+
+## The Core Translation
+
+| R3F | Three.js idea |
+| --- | --- |
+| `<mesh />` | `new THREE.Mesh()` |
+| `<boxGeometry args={[1, 1, 1]} />` | `new THREE.BoxGeometry(1, 1, 1)` |
+| `<meshStandardMaterial color="orange" />` | `new THREE.MeshStandardMaterial({ color: 'orange' })` |
+| JSX nesting | `parent.add(child)` |
+| `position={[1, 2, 3]}` | `object.position.set(1, 2, 3)` |
+| `useFrame(...)` | a render loop update step |
+
+## A Short Example
+
+```jsx
+<mesh position={[0, 1, 0]}>
+  <boxGeometry args={[1, 1, 1]} />
+  <meshStandardMaterial color="#f97316" />
+</mesh>
+```
+
+Read that like this:
+
+1. Create a `THREE.Mesh`.
+2. Set its position to `[0, 1, 0]`.
+3. Attach a `THREE.BoxGeometry(1, 1, 1)`.
+4. Attach a `THREE.MeshStandardMaterial({ color: '#f97316' })`.
+
+## Useful Habits
+
+- Look for lowercase JSX tags first. They usually map directly to Three.js classes.
+- Treat `args` as constructor parameters.
+- Treat nested children as ownership or attachment.
+- Treat props like `position`, `rotation`, and `visible` as familiar Three.js instance properties.
+
+## What Not to Assume
+
+- Not every React pattern belongs inside a frame loop.
+- Not every helper abstraction makes the scene easier to understand.
+- R3F is not replacing Three.js APIs. It is giving you a different way to compose them.
+
+Once that clicks, the conversion pages become much less mysterious.
+
+## External Resources
+
+- [React Three Fiber docs](https://r3f.docs.pmnd.rs/)
+- [React Three Fiber `Canvas` API](https://r3f.docs.pmnd.rs/api/canvas)
+- [Three.js `Object3D` docs](https://threejs.org/docs/#api/en/core/Object3D)
+- [Three.js manual: Creating a scene](https://threejs.org/manual/en/creating-a-scene.html)

@@ -1,0 +1,49 @@
+---
+title: Versions and Example Format
+description: How the examples are stored, versioned, and surfaced inside the docs.
+sidebar:
+  order: 3
+---
+
+import VersionBadge from '../../../components/docs/VersionBadge.astro';
+import { pinnedVersions } from '../../../data/examples';
+
+Every example in this site is meant to be stable and inspectable. The docs pages do not duplicate the code manually. They read example metadata and raw source from the `examples/` directory.
+
+<VersionBadge versions={pinnedVersions} />
+
+## Folder Shape
+
+```text
+examples/
+  scene-camera-renderer/
+    meta.json
+    three/
+      main.js
+    r3f/
+      App.jsx
+```
+
+## Why This Structure Works
+
+- `meta.json` stores the example title, slug, summary, pinned package versions, and optional playground links.
+- `three/main.js` is the baseline imperative version.
+- `r3f/App.jsx` is the matching declarative translation.
+- The docs import those files directly, so what you read on the page stays aligned with the source of truth.
+
+## Notes About Playgrounds
+
+- A page does not need a hosted playground to teach the code.
+- The data model already has `threeSandboxUrl` and `r3fSandboxUrl` fields for future runnable examples.
+- If you later publish a playground, you only need to add the URL to the example's `meta.json`.
+
+## Authoring Rule
+
+Keep examples small and concept-specific. If a page is teaching lights, avoid also sneaking in controls, physics, post-processing, or helper abstractions unless the page is explicitly about those topics.
+
+## External Resources
+
+- [Astro Starlight docs](https://starlight.astro.build/)
+- [MDX in Astro](https://docs.astro.build/en/guides/markdown-content/#mdx)
+- [React Three Fiber docs](https://r3f.docs.pmnd.rs/)
+- [Three.js docs](https://threejs.org/docs/)

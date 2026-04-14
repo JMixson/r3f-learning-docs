@@ -1,0 +1,34 @@
+---
+title: Common Gotchas
+description: Easy mistakes to avoid when reading or writing your first R3F examples.
+sidebar:
+  order: 3
+---
+
+- `<Canvas />` fills its parent, so give the parent a height or the scene can disappear.
+- `args` are constructor arguments. If they change, the underlying object can be recreated.
+- Continuous animation should usually mutate refs in `useFrame`, not update React state every frame.
+- R3F event handlers already perform the common raycasting work for you.
+- Lowercase JSX primitives usually map to Three.js classes. Uppercase component names are usually your own React components or library abstractions.
+- You usually do not call `renderer.render(scene, camera)` yourself inside `<Canvas />`.
+- A material that needs light in Three.js still needs light in R3F.
+- Loading helpers in R3F still rely on Three.js loaders and asset formats under the hood.
+
+## If Something Feels Mysterious
+
+Translate the code back into the underlying scene graph:
+
+1. What objects are being created?
+2. Which object owns which child?
+3. Which values are constructor arguments?
+4. Which values are mutable updates over time?
+
+That four-question pass usually clears up most confusion.
+
+## External Resources
+
+- [React Three Fiber docs](https://r3f.docs.pmnd.rs/)
+- [React Three Fiber hooks docs](https://r3f.docs.pmnd.rs/api/hooks)
+- [React Three Fiber events docs](https://r3f.docs.pmnd.rs/api/events)
+- [Three.js docs](https://threejs.org/docs/)
+- [Three.js manual](https://threejs.org/manual/en/)

@@ -1,0 +1,45 @@
+---
+title: Lights
+description: Compare imperative light creation with declarative R3F light components.
+sidebar:
+  order: 3
+---
+
+import CodeCompare from '../../../components/docs/CodeCompare.astro';
+import MappingNotes from '../../../components/docs/MappingNotes.astro';
+import VersionBadge from '../../../components/docs/VersionBadge.astro';
+import { getExample } from '../../../data/examples';
+
+export const example = getExample('lights');
+
+{example.meta.summary}
+
+<VersionBadge versions={example.meta.versions} />
+
+<CodeCompare
+  title="Exact Conversion"
+  slug={example.meta.slug}
+  threeCode={example.threeCode}
+  r3fCode={example.r3fCode}
+/>
+
+<MappingNotes>
+
+- `new THREE.AmbientLight()` becomes `<ambientLight />`.
+- `new THREE.DirectionalLight()` becomes `<directionalLight />`.
+- Position and intensity stay conceptually identical, but they become props.
+- The object being lit does not change. Only the scene authoring style changes.
+
+</MappingNotes>
+
+## Practical Rule
+
+Whenever a Three.js example adds a light to the scene, your first R3F instinct should be to look for the matching lowercase JSX primitive before reaching for abstractions.
+
+## External Resources
+
+- [React Three Fiber objects and props docs](https://r3f.docs.pmnd.rs/api/objects)
+- [Three.js manual: Lights](https://threejs.org/manual/en/lights.html)
+- [Three.js `AmbientLight` docs](https://threejs.org/docs/#api/en/lights/AmbientLight)
+- [Three.js `DirectionalLight` docs](https://threejs.org/docs/#api/en/lights/DirectionalLight)
+- [Discover Three.js: Ambient lighting](https://discoverthreejs.com/book/first-steps/ambient-lighting/)

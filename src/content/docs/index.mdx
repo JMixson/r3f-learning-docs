@@ -1,40 +1,63 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
-hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
-  actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+title: R3F Learning Docs
+description: Learn React Three Fiber by comparing exact Three.js examples to equivalent R3F code.
+template: splash
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+import VersionBadge from '../../components/docs/VersionBadge.astro';
+import { pinnedVersions } from '../../data/examples';
 
-## Next steps
+React Three Fiber is easiest to learn when you read it as "Three.js described in JSX," not as a totally different graphics system.
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+These docs are organized around one teaching loop:
+
+1. Read the original Three.js code.
+2. Compare it to the exact React Three Fiber translation.
+3. Notice what stays the same and what becomes declarative.
+
+<VersionBadge versions={pinnedVersions} />
+
+## What You Will Find Here
+
+<CardGrid>
+  <LinkCard
+    title="Start Here"
+    href="/start-here/why-r3f/"
+    description="A short learning path for understanding R3F without already being fluent in Astro, Three.js, or Fiber."
+  />
+  <LinkCard
+    title="Conversions"
+    href="/conversions/scene-camera-renderer/"
+    description="Side-by-side examples that translate common Three.js setup and scene patterns into R3F."
+  />
+  <LinkCard
+    title="Patterns"
+    href="/patterns/refs-vs-state/"
+    description="Decision-making notes for refs, state, imperative updates, and where helper libraries belong."
+  />
+  <LinkCard
+    title="Reference"
+    href="/reference/jsx-to-three-cheatsheet/"
+    description="Quick lookup tables for JSX primitives, prop mappings, and common mistakes."
+  />
 </CardGrid>
+
+## Suggested Reading Order
+
+1. Start with [Why R3F](/start-here/why-r3f/).
+2. Read [How to Read R3F Like Three.js](/start-here/how-to-read-r3f-like-three/).
+3. Work through the conversion pages in order.
+4. Keep the reference section open when a prop or JSX primitive feels unfamiliar.
+
+## Guiding Rule
+
+If a page shows a `three/main.js` snippet and an `r3f/App.jsx` snippet, the goal is not "prettier React." The goal is to preserve the same scene idea while making the R3F mental model explicit.
+
+## External Resources
+
+- [React Three Fiber docs](https://r3f.docs.pmnd.rs/)
+- [Three.js docs](https://threejs.org/docs/)
+- [Three.js manual](https://threejs.org/manual/en/)
+- [Three.js examples](https://threejs.org/examples/)
+- [Discover Three.js](https://discoverthreejs.com/)

@@ -1,0 +1,45 @@
+---
+title: Mesh, Geometry, Material
+description: Convert manual mesh construction into nested JSX primitives and props.
+sidebar:
+  order: 2
+---
+
+import CodeCompare from '../../../components/docs/CodeCompare.astro';
+import MappingNotes from '../../../components/docs/MappingNotes.astro';
+import VersionBadge from '../../../components/docs/VersionBadge.astro';
+import { getExample } from '../../../data/examples';
+
+export const example = getExample('mesh-geometry-material');
+
+{example.meta.summary}
+
+<VersionBadge versions={example.meta.versions} />
+
+<CodeCompare
+  title="Exact Conversion"
+  slug={example.meta.slug}
+  threeCode={example.threeCode}
+  r3fCode={example.r3fCode}
+/>
+
+<MappingNotes>
+
+- `new THREE.Mesh(geometry, material)` becomes a `<mesh>` with geometry and material children.
+- Constructor arguments move into `args`.
+- Material option objects become regular JSX props like `color`, `metalness`, and `roughness`.
+- The scene still needs light because `meshStandardMaterial` behaves the same in both APIs.
+
+</MappingNotes>
+
+## The Big Idea
+
+The geometry and material are not "special React children." They are still the same underlying Three.js objects. R3F just lets you express the ownership structure directly in the markup instead of building the hierarchy in separate variables.
+
+## External Resources
+
+- [React Three Fiber objects and props docs](https://r3f.docs.pmnd.rs/api/objects)
+- [Three.js `Mesh` docs](https://threejs.org/docs/#api/en/objects/Mesh)
+- [Three.js `BufferGeometry` docs](https://threejs.org/docs/#api/en/core/BufferGeometry)
+- [Three.js materials docs](https://threejs.org/docs/#api/en/materials/Material)
+- [Discover Three.js: Organizing with `Group`](https://discoverthreejs.com/book/first-steps/organizing-with-group/)

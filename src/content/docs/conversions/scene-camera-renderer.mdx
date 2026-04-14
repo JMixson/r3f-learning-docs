@@ -1,0 +1,49 @@
+---
+title: Scene, Camera, Renderer
+description: Translate the minimum Three.js app shell into a minimal React Three Fiber scene.
+sidebar:
+  order: 1
+---
+
+import CodeCompare from '../../../components/docs/CodeCompare.astro';
+import MappingNotes from '../../../components/docs/MappingNotes.astro';
+import VersionBadge from '../../../components/docs/VersionBadge.astro';
+import { getExample } from '../../../data/examples';
+
+export const example = getExample('scene-camera-renderer');
+
+{example.meta.summary}
+
+<VersionBadge versions={example.meta.versions} />
+
+<CodeCompare
+  title="Exact Conversion"
+  slug={example.meta.slug}
+  threeCode={example.threeCode}
+  r3fCode={example.r3fCode}
+/>
+
+<MappingNotes>
+
+- `<Canvas />` replaces manual renderer creation, sizing, and the initial render call.
+- The scene background becomes `<color attach="background" ... />`.
+- The camera moves into the `camera` prop on `<Canvas />`.
+- The mesh still exists. You are just declaring it instead of constructing it by hand.
+
+</MappingNotes>
+
+## Read This Translation
+
+- `new THREE.Scene()` is mostly implicit once you enter `<Canvas />`.
+- `scene.add(cube)` becomes JSX nesting.
+- `renderer.setPixelRatio(...)` maps nicely to `dpr={[1, 2]}` for a practical default.
+
+This is the first page to internalize before reading anything more advanced. If this translation feels natural, most basic R3F examples will stop looking like special syntax and start looking like normal scene setup.
+
+## External Resources
+
+- [React Three Fiber `Canvas` API](https://r3f.docs.pmnd.rs/api/canvas)
+- [Three.js manual: Creating a scene](https://threejs.org/manual/en/creating-a-scene.html)
+- [Three.js `Scene` docs](https://threejs.org/docs/#api/en/scenes/Scene)
+- [Three.js `PerspectiveCamera` docs](https://threejs.org/docs/#api/en/cameras/PerspectiveCamera)
+- [Three.js `WebGLRenderer` docs](https://threejs.org/docs/#api/en/renderers/WebGLRenderer)

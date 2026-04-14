@@ -1,0 +1,39 @@
+---
+title: Imperative Updates
+description: Where direct object mutation still makes sense in an otherwise declarative R3F app.
+sidebar:
+  order: 2
+---
+
+R3F does not ban imperative code. It gives you a cleaner place to put it.
+
+## Good Uses For Imperative Updates
+
+- Animating values in `useFrame`.
+- Updating camera targets or controls.
+- Tweaking material or geometry properties that come from external systems.
+
+## Common Tools
+
+- `useRef` to hold the object instance.
+- `useFrame` for per-frame logic.
+- `useThree` when you need access to shared renderer state like the camera, scene, or viewport.
+
+```jsx
+const camera = useThree((state) => state.camera);
+
+useEffect(() => {
+  camera.position.set(0, 2, 6);
+}, [camera]);
+```
+
+## The Goal
+
+Keep the scene shape declarative, then use imperative code in small, explicit islands for behavior that is naturally mutation-based.
+
+## External Resources
+
+- [React Three Fiber hooks docs](https://r3f.docs.pmnd.rs/api/hooks)
+- [Three.js `Object3D` docs](https://threejs.org/docs/#api/en/core/Object3D)
+- [React `useEffect` docs](https://react.dev/reference/react/useEffect)
+- [SBCODE: `useEffect` tutorial](https://sbcode.net/react-three-fiber/use-effect/)

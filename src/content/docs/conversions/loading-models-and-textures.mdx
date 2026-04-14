@@ -1,0 +1,46 @@
+---
+title: Loading Models and Textures
+description: Keep the loader mental model, but express resource usage with hooks that fit React rendering.
+sidebar:
+  order: 6
+---
+
+import CodeCompare from '../../../components/docs/CodeCompare.astro';
+import MappingNotes from '../../../components/docs/MappingNotes.astro';
+import VersionBadge from '../../../components/docs/VersionBadge.astro';
+import { getExample } from '../../../data/examples';
+
+export const example = getExample('loading-models-and-textures');
+
+{example.meta.summary}
+
+<VersionBadge versions={example.meta.versions} />
+
+<CodeCompare
+  title="Exact Conversion"
+  slug={example.meta.slug}
+  threeCode={example.threeCode}
+  r3fCode={example.r3fCode}
+/>
+
+<MappingNotes>
+
+- `new THREE.TextureLoader().load(...)` becomes `useLoader(TextureLoader, url)`.
+- The loaded texture gets passed into the material as a prop.
+- The example uses textures, but the same idea extends to models with loaders like `GLTFLoader`.
+- You are still using Three.js loaders. R3F is helping them fit into component rendering.
+
+</MappingNotes>
+
+## Mental Shortcut
+
+If a Three.js example says "load an asset, then create objects that use it," the R3F version is usually "call a loader hook, then return JSX that consumes the loaded resource."
+
+## External Resources
+
+- [React Three Fiber hooks docs](https://r3f.docs.pmnd.rs/api/hooks)
+- [React Three Fiber tutorial: Loading models](https://r3f.docs.pmnd.rs/tutorials/loading-models)
+- [Three.js manual: Textures](https://threejs.org/manual/en/textures.html)
+- [Three.js manual: Loading 3D models](https://threejs.org/manual/en/loading-3d-models.html)
+- [Three.js manual: Loading a glTF file](https://threejs.org/manual/en/load-gltf.html)
+- [SBCODE: `useLoader` tutorial](https://sbcode.net/react-three-fiber/use-loader/)

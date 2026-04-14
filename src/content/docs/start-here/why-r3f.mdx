@@ -1,0 +1,44 @@
+---
+title: Why R3F
+description: What React Three Fiber is good at, and why reading it through Three.js makes it easier to learn.
+sidebar:
+  order: 1
+---
+
+React Three Fiber is a React renderer for Three.js. That means the underlying scene graph is still Three.js, but you describe it with React components instead of manually creating every object and wiring every render step yourself.
+
+## Why This Matters for Learning
+
+- You do not need to abandon Three.js knowledge to learn R3F.
+- Most of the "magic" is just object creation, nesting, and updates expressed declaratively.
+- When an R3F example feels confusing, translating it back into Three.js usually reveals what it is doing.
+
+## What Stays the Same
+
+- Cameras are still cameras.
+- Meshes still combine geometry and material.
+- Lights still affect materials the same way.
+- Textures, models, and loaders still come from `three`.
+
+## What Changes
+
+- `<Canvas />` handles renderer setup and resize work for you.
+- JSX nesting replaces a lot of `scene.add(...)`.
+- Many constructor arguments move into `args`.
+- Per-frame work moves into hooks like `useFrame`.
+- Pointer events can live directly on scene objects instead of using manual raycasting for common cases.
+
+## What This Site Optimizes For
+
+- Exact version pinning, so examples do not drift while you are learning.
+- Small examples, so each page teaches one idea.
+- Direct Three.js to R3F translations before introducing higher-level helpers.
+
+If you already know some React but very little graphics code, start treating every R3F component like a clue about which Three.js object it creates. That habit will make the rest of the docs much easier to read.
+
+## External Resources
+
+- [React Three Fiber docs](https://r3f.docs.pmnd.rs/)
+- [React Three Fiber installation guide](https://r3f.docs.pmnd.rs/getting-started/installation)
+- [Three.js manual: Creating a scene](https://threejs.org/manual/en/creating-a-scene.html)
+- [Three.js Journey: React Three Fiber introduction](https://threejs-journey.com/lessons/first-react-application)
