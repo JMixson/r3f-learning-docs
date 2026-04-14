@@ -1,0 +1,55 @@
+@layer base, starlight, theme, components, utilities;
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+:root {
+  /* Generated accent color palettes. */
+  --color-accent-200: #b0d2c0;
+  --color-accent-600: #00593b;
+  --color-accent-900: #043d27;
+  --color-accent-950: #0c2b1d;
+
+  /* Generated gray color palettes. */
+  --color-gray-100: #f5f6f8;
+  --color-gray-200: #eaeef2;
+  --color-gray-300: #bec3c7;
+  --color-gray-400: #848d94;
+  --color-gray-500: #515960;
+  --color-gray-600: #3f474d;
+  --color-gray-700: #323940;
+  --color-gray-800: #21282e;
+  --color-gray-900: #15191c;
+
+  /* Final Starlight token overrides for dark mode. */
+  --sl-color-white: var(--color-gray-100);
+  --sl-color-gray-1: var(--color-gray-200);
+  --sl-color-gray-2: var(--color-gray-300);
+  --sl-color-gray-3: var(--color-gray-400);
+  --sl-color-gray-4: var(--color-gray-600);
+  --sl-color-gray-5: var(--color-gray-700);
+  --sl-color-gray-6: var(--color-gray-800);
+  --sl-color-black: var(--color-gray-900);
+
+  --sl-color-accent-low: var(--color-accent-950);
+  --sl-color-accent: var(--color-accent-600);
+  --sl-color-accent-high: var(--color-accent-200);
+}
+
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+  /* Final Starlight token overrides for light mode. */
+  --sl-color-white: var(--color-gray-900);
+  --sl-color-gray-1: var(--color-gray-800);
+  --sl-color-gray-2: var(--color-gray-700);
+  --sl-color-gray-3: var(--color-gray-500);
+  --sl-color-gray-4: var(--color-gray-400);
+  --sl-color-gray-5: var(--color-gray-300);
+  --sl-color-gray-6: var(--color-gray-200);
+  --sl-color-gray-7: var(--color-gray-100);
+  --sl-color-black: #ffffff;
+
+  --sl-color-accent-low: var(--color-accent-200);
+  --sl-color-accent: var(--color-accent-600);
+  --sl-color-accent-high: var(--color-accent-900);
+}
