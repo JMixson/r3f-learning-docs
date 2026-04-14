@@ -1,49 +1,66 @@
-# Starlight Starter Kit: Basics
+# R3F Learning Docs
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+R3F Learning Docs is a custom Astro + Starlight site for learning React Three Fiber by comparing familiar Three.js patterns with equivalent R3F code.
 
-```
-pnpm create astro@latest -- --template starlight
-```
+The docs are organized around a simple teaching loop:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+1. Read the original Three.js approach.
+2. Compare it to the React Three Fiber version.
+3. Focus on what stays the same and what becomes declarative.
 
-## 🚀 Project Structure
+## What This Project Covers
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+- `start-here/`: foundational mental models for reading and learning R3F
+- `conversions/`: side-by-side translations from common Three.js setups to R3F
+- `patterns/`: practical guidance on refs, state, imperative updates, and helper libraries
+- `reference/`: quick lookup material for JSX primitives, prop mappings, and common gotchas
 
-```
+## Tech Stack
+
+- [Astro](https://docs.astro.build/)
+- [Starlight](https://starlight.astro.build/)
+- [React](https://react.dev/)
+- [React Three Fiber](https://r3f.docs.pmnd.rs/)
+- [Three.js](https://threejs.org/)
+
+## Project Structure
+
+```text
 .
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+|-- public/
+|-- src/
+|   |-- content/
+|   |   `-- docs/
+|   |       |-- conversions/
+|   |       |-- patterns/
+|   |       |-- reference/
+|   |       `-- start-here/
+|   `-- styles/
+|-- astro.config.mjs
+|-- package.json
+`-- README.md
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+The documentation homepage lives at `src/content/docs/index.mdx`.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Commands
 
-Static assets, like favicons, can be placed in the `public/` directory.
+Run these from the project root:
 
-## 🧞 Commands
+| Command | Action |
+| :------ | :----- |
+| `pnpm install` | Install dependencies |
+| `pnpm dev` | Start the local dev server |
+| `pnpm build` | Build the production site into `dist/` |
+| `pnpm preview` | Preview the production build locally |
+| `pnpm astro -- --help` | Show Astro CLI help |
 
-All commands are run from the root of the project, from a terminal:
+## Development Notes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+- Docs content is written in `.md` and `.mdx` files under `src/content/docs/`.
+- Static assets belong in `public/`.
+- Styling is primarily handled through the Starlight setup and the files in `src/styles/`.
 
-## 👀 Want to learn more?
+## License
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
