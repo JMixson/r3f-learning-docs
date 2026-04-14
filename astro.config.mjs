@@ -12,11 +12,17 @@ export default defineConfig({
     react(),
     starlight({
       title: 'R3F Learning Docs',
+      logo: {
+        src: './public/logo.svg',
+        alt: 'R3F Learning Docs logo',
+      },
       customCss: ['./src/styles/global.css'],
       disable404Route: true,
       editLink: {
-        baseUrl: 'https://github.com/JMixson/r3f-learning-docs/edit/main/src/content/docs/',
+        baseUrl:
+          'https://github.com/JMixson/r3f-learning-docs/edit/main/src/content/docs/',
       },
+      favicon: '/logo.svg',
       lastUpdated: true,
       social: [
         {
