@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
-import './sandpack-demo.css';
+import './live-preview.css';
 
-export interface SandpackDemoProps {
+export interface LivePreviewProps {
   slug: string;
   title: string;
 }
@@ -10,21 +10,21 @@ function getPreviewUrl(slug: string) {
   return `/previews/${slug}/`;
 }
 
-export default function SandpackDemo({
+export default function LivePreview({
   slug,
   title,
-}: SandpackDemoProps): JSX.Element {
+}: LivePreviewProps): JSX.Element {
   const previewUrl = getPreviewUrl(slug);
 
   return (
-    <section className="sandpack-demo" aria-label={`${title} interactive demo`}>
-      <div className="sandpack-demo__preview-heading">
+    <section className="live-preview" aria-label={`${title} interactive demo`}>
+      <div className="live-preview__preview-heading">
         <h3>Live preview</h3>
       </div>
 
-      <div className="sandpack-demo__surface">
+      <div className="live-preview__surface">
         <iframe
-          className="sandpack-demo__iframe"
+          className="live-preview__iframe"
           src={previewUrl}
           title={`${title} live preview`}
           loading="lazy"

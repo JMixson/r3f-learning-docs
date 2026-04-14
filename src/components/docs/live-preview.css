@@ -1,21 +1,21 @@
-.sandpack-demo {
+.live-preview {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.sandpack-demo__preview-heading {
+.live-preview__preview-heading {
   margin: 0;
 }
 
-.sandpack-demo__surface {
+.live-preview__surface {
   overflow: hidden;
   border: 1px solid var(--sl-color-gray-5);
   border-radius: 0.9rem;
   background: color-mix(in srgb, var(--sl-color-accent) 9%, transparent);
 }
 
-.sandpack-demo__iframe {
+.live-preview__iframe {
   display: block;
   width: 100%;
   min-width: 0;
@@ -27,7 +27,7 @@
 }
 
 @media (max-width: 48rem) {
-  .sandpack-demo__iframe {
+  .live-preview__iframe {
     height: 20rem;
     min-height: 20rem;
   }
