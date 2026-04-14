@@ -1,0 +1,13 @@
+{
+  "title": "Events",
+  "slug": "events",
+  "summary": "Compare manual raycasting and pointer bookkeeping with R3F's built-in pointer event system.",
+  "versions": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "@react-three/fiber": "9.3.0",
+    "three": "0.180.0"
+  },
+  "threeSandboxUrl": "",
+  "r3fSandboxUrl": ""
+}

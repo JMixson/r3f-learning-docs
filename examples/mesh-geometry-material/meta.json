@@ -1,0 +1,13 @@
+{
+  "title": "Mesh, Geometry, Material",
+  "slug": "mesh-geometry-material",
+  "summary": "See how an imperative mesh setup becomes nested JSX with constructor args and material props.",
+  "versions": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "@react-three/fiber": "9.3.0",
+    "three": "0.180.0"
+  },
+  "threeSandboxUrl": "",
+  "r3fSandboxUrl": ""
+}

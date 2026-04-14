@@ -1,0 +1,13 @@
+{
+  "title": "Lights",
+  "slug": "lights",
+  "summary": "Translate manual light construction and positioning into declarative scene primitives.",
+  "versions": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "@react-three/fiber": "9.3.0",
+    "three": "0.180.0"
+  },
+  "threeSandboxUrl": "",
+  "r3fSandboxUrl": ""
+}

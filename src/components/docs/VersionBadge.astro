@@ -1,0 +1,43 @@
+---
+import { Badge } from '@astrojs/starlight/components';
+
+interface Props {
+  versions: Record<string, string>;
+}
+
+const { versions } = Astro.props;
+const entries = Object.entries(versions);
+---
+
+<section class="version-badge" aria-label="Pinned package versions">
+  <p class="label">Pinned example stack</p>
+  <div class="badges">
+    {entries.map(([name, version]) => <Badge text={`${name}@${version}`} variant="note" size="small" />)}
+  </div>
+</section>
+
+<style>
+  .version-badge {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background:
+      linear-gradient(135deg, var(--sl-color-blue-low), transparent 55%),
+      linear-gradient(180deg, var(--sl-color-gray-6), var(--sl-color-black));
+    margin: 1.5rem 0;
+  }
+
+  .label {
+    margin: 0 0 0.75rem;
+    font-size: var(--sl-text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--sl-color-gray-3);
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>

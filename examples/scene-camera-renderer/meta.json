@@ -1,0 +1,13 @@
+{
+  "title": "Scene, Camera, Renderer",
+  "slug": "scene-camera-renderer",
+  "summary": "Start with the minimum Three.js setup, then compare it to the JSX you actually write in React Three Fiber.",
+  "versions": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "@react-three/fiber": "9.3.0",
+    "three": "0.180.0"
+  },
+  "threeSandboxUrl": "",
+  "r3fSandboxUrl": ""
+}

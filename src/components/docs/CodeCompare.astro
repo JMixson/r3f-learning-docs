@@ -1,0 +1,87 @@
+---
+import { Code, TabItem, Tabs } from '@astrojs/starlight/components';
+import LivePreviewCard from './LivePreviewCard.astro';
+
+interface Props {
+  title: string;
+  slug: string;
+  threeCode: string;
+  r3fCode: string;
+}
+
+const { title, slug, threeCode, r3fCode } = Astro.props;
+---
+
+<section class="code-compare">
+  <header class="section-header">
+    <h2>{title}</h2>
+    <p>Read the Three.js version first, then compare it to the React Three Fiber translation.</p>
+  </header>
+
+  <div class="panel">
+    <Tabs syncKey="runtime-example">
+      <TabItem label="Three.js">
+        <Code code={threeCode} lang="js" meta={'title="three/main.js"'} />
+      </TabItem>
+      <TabItem label="React Three Fiber">
+        <Code code={r3fCode} lang="jsx" meta={'title="r3f/App.jsx"'} />
+      </TabItem>
+    </Tabs>
+  </div>
+
+  <div class="preview-grid">
+    <LivePreviewCard slug={slug} runtime="r3f" title="React Three Fiber Preview" />
+  </div>
+</section>
+
+<style>
+  .code-compare {
+    margin: 2rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    margin: 0;
+  }
+
+  .section-header p {
+    margin: 0.5rem 0 0;
+    color: var(--sl-color-gray-3);
+  }
+
+  .panel {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    background:
+      radial-gradient(circle at top left, color-mix(in srgb, var(--sl-color-accent) 12%, transparent), transparent 40%),
+      var(--sl-color-black);
+    overflow: hidden;
+  }
+
+  .preview-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .panel :global(.tablist-wrapper) {
+    padding: 0.875rem 1rem 0;
+  }
+
+  .panel :global([role='tablist']) {
+    margin: 0;
+  }
+
+  .panel :global(.expressive-code) {
+    margin-top: 0;
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+  }
+
+  .panel :global([role='tabpanel']) {
+    padding: 0 1rem 1rem;
+  }
+</style>
