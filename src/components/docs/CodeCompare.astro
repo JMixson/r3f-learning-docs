@@ -1,7 +1,6 @@
 ---
 import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
-import SandpackDemo from './SandpackDemo';
-import { exampleSlugs, getExample, type ExampleSlug } from '../../data/examples';
+import LivePreview from './LivePreview';
 
 interface Props {
   title: string;
@@ -11,9 +10,6 @@ interface Props {
 }
 
 const { title, slug, threeCode, r3fCode } = Astro.props;
-const example = exampleSlugs.includes(slug as ExampleSlug)
-  ? getExample(slug as ExampleSlug)
-  : undefined;
 ---
 
 <section class="code-compare">
@@ -40,12 +36,9 @@ const example = exampleSlugs.includes(slug as ExampleSlug)
     </TabItem>
   </Tabs>
 
-  <SandpackDemo
+  <LivePreview
     slug={slug}
     title={title}
-    r3fCode={r3fCode}
-    versions={example?.meta.versions ?? {}}
-    client:visible
   />
 </section>
 

@@ -1,0 +1,34 @@
+.live-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.live-preview__preview-heading {
+  margin: 0;
+}
+
+.live-preview__surface {
+  overflow: hidden;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--sl-color-accent) 9%, transparent);
+}
+
+.live-preview__iframe {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 28rem;
+  border: 0;
+  background:
+    radial-gradient(circle at top, color-mix(in srgb, var(--sl-color-accent) 12%, transparent), transparent 50%),
+    color-mix(in srgb, var(--sl-color-black) 78%, transparent);
+}
+
+@media (max-width: 48rem) {
+  .live-preview__iframe {
+    height: 20rem;
+    min-height: 20rem;
+  }
+}

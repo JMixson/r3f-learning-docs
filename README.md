@@ -6,7 +6,7 @@ Each lesson follows a simple loop:
 
 1. Read the Three.js version.
 2. Switch to the React Three Fiber version.
-3. Run the R3F example inline with the Sandpack preview embedded in the page.
+3. Run the R3F example inline with the local preview embedded in the page.
 
 ## What The Site Covers
 
@@ -20,7 +20,7 @@ The documentation homepage lives at `src/content/docs/index.mdx`.
 
 ## How Examples Work
 
-The docs use a shared example registry plus inline Sandpack previews for the comparison pages.
+The docs use a shared example registry plus inline local previews for the comparison pages.
 
 - Source examples live in `examples/<slug>/`
 - Each example includes:
@@ -29,7 +29,7 @@ The docs use a shared example registry plus inline Sandpack previews for the com
   - `meta.json` for the title, summary, sandbox links, and pinned dependency versions
 - `src/data/examples.ts` imports those files and exposes them to the docs components
 - `src/components/docs/CodeCompare.astro` renders the tabbed code comparison and mounts the live R3F preview
-- `src/components/docs/SandpackDemo.tsx` and `src/components/docs/SandpackDemoClient.tsx` boot the inline Sandpack runtime
+- `src/components/docs/SandpackDemo.tsx`, `src/components/docs/ExamplePreviewPage.tsx`, and `src/pages/previews/[slug].astro` power the inline preview iframe and the dedicated preview route
 
 ## Tech Stack
 
@@ -38,7 +38,6 @@ The docs use a shared example registry plus inline Sandpack previews for the com
 - [React](https://react.dev/)
 - [React Three Fiber](https://r3f.docs.pmnd.rs/)
 - [Three.js](https://threejs.org/)
-- [Sandpack](https://sandpack.codesandbox.io/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
 ## Project Structure
