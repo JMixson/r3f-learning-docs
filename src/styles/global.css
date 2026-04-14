@@ -4,6 +4,9 @@
 @import 'tailwindcss/utilities.css' layer(utilities);
 
 :root {
+  --sl-content-width: 50rem;
+  --sl-text-5xl: 3.5rem;
+
   /* Generated accent color palettes. */
   --color-accent-200: #b0d2c0;
   --color-accent-600: #00593b;
