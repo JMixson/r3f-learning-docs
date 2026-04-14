@@ -4,15 +4,16 @@ import './sandpack-demo.css';
 export interface SandpackDemoProps {
   slug: string;
   title: string;
-  r3fCode?: string;
-  versions?: Record<string, string>;
 }
 
 function getPreviewUrl(slug: string) {
   return `/previews/${slug}/`;
 }
 
-export default function SandpackDemo({ slug, title }: SandpackDemoProps): JSX.Element {
+export default function SandpackDemo({
+  slug,
+  title,
+}: SandpackDemoProps): JSX.Element {
   const previewUrl = getPreviewUrl(slug);
 
   return (
